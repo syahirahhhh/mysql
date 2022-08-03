@@ -1,0 +1,47 @@
+select * from ExerciseCategory,Exercise; #ac1
+
+select * from `Client`; #ac2
+
+# SELECT * FROM `Client` WHERE City = 'Metairie' #ac3
+
+# select * from `Client` where ClientId = '818u7faf-7b4b-48a2-bf12-7a26c92de20c'; #ac4
+#error cos interfere with previous line, need to put as comment
+
+select * from Goal; #ac5
+
+select `Name`,LevelId from Workout; #ac6
+
+# select `Name`, LevelId,Notes from Workout where LevelId = 2 #ac7
+
+Select FirstName,LastName,City from `Client` where City='Metairie' or City='Kenner' or City='Gretna';
+#ac8 w/wo() after where works 
+
+Select FirstName,LastName,BirthDate from `Client` where BirthDate like '198%'; #ac9
+
+Select FirstName,LastName,BirthDate from `Client` where BirthDate BETWEEN '1980-01-01' AND '1989-12-31'; 
+#ac10
+
+select * from Login where EmailAddress like '%.gov'; #ac11
+
+select * from Login where EmailAddress not like '%.com'; #ac12
+
+#select FirstName,LastName from `Client` where BirthDate is null #ac13
+
+Select `Name` from ExerciseCategory where ParentCategoryId is not null; #ac14
+
+Select `Name`,Notes from Workout where LevelId=3 and Notes like '%you%'; #ac15
+
+Select FirstName,LastName,City from `Client` where (LastName like 'L%' or LastName like 'M%' or LastName like 'N%') and City='LaPlace';
+#ac16
+
+Select InvoiceId,Description,Price,Quantity,price*quantity as line_item_total from InvoiceLineItem where price*quantity between 15 and 25;
+#ac17
+
+Select * from Client where firstname='Estrella' and lastname='Bazely';
+select * from Login where clientid='87976c42-9226-4bc6-8b32-23a8cd7869a5';
+#ac18
+
+Select WorkoutId from Workout where Name='This Is Parkour'; #12
+Select GoalId from WorkoutGoal where WorkoutId=12; #3,8,15
+Select name from Goal where GoalId=3 or goalid=8 or goalid=15;
+#ac19
